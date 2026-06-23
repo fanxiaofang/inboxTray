@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="100%" height="100%">
+  <defs>
+    <!-- 怪兽身体：深炭蓝灰 -->
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3d4660"/>
+      <stop offset="100%" stop-color="#252d3d"/>
+    </linearGradient>
+    <!-- 口腔内部：深褐紫 -->
+    <linearGradient id="mouthGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a2535"/>
+      <stop offset="100%" stop-color="#2a1520"/>
+    </linearGradient>
+    <!-- 信件：黄铜渐变 -->
+    <linearGradient id="letterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0d78c"/>
+      <stop offset="40%" stop-color="#d4a853"/>
+      <stop offset="100%" stop-color="#b8923f"/>
+    </linearGradient>
+    <!-- 牙齿：暖白 -->
+    <linearGradient id="toothGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faf3e6"/>
+      <stop offset="100%" stop-color="#e8dcc8"/>
+    </linearGradient>
+    <!-- 封蜡：亮黄铜 -->
+    <radialGradient id="waxGrad" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#f5e6a8"/>
+      <stop offset="100%" stop-color="#d4a853"/>
+    </radialGradient>
+    <!-- 阴影 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- ===== 怪兽托盘身体 ===== -->
+  <path d="M 48,95
+           C 48,80 58,68 72,68
+           L 88,68
+           C 95,68 100,72 104,80
+           L 112,98
+           C 116,106 124,110 128,110
+           C 132,110 140,106 144,98
+           L 152,80
+           C 156,72 161,68 168,68
+           L 184,68
+           C 198,68 208,80 208,95
+           L 208,175
+           C 208,205 185,225 155,225
+           L 101,225
+           C 71,225 48,205 48,175
+           Z"
+        fill="url(#bodyGrad)" stroke="#1a1d29" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 肚皮黄铜微光 -->
+  <ellipse cx="128" cy="185" rx="38" ry="22" fill="#d4a853" opacity="0.08"/>
+
+  <!-- ===== 张开的嘴巴 ===== -->
+  <!-- 口腔背景 -->
+  <path d="M 72,95
+           L 184,95
+           L 184,130
+           C 184,155 160,168 128,168
+           C 96,168 72,155 72,130
+           Z"
+        fill="url(#mouthGrad)" stroke="#1a1d29" stroke-width="8" stroke-linejoin="round"/>
+
+  <!-- 上排牙齿 -->
+  <path d="M 82,98 L 90,112 L 98,98 L 106,112 L 114,98 L 122,112 L 130,98 L 138,112 L 146,98 L 154,112 L 162,98 L 170,112 L 178,98"
+        fill="none" stroke="#1a1d29" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 84,100 L 90,110 L 96,100 L 104,110 L 112,100 L 120,110 L 128,100 L 136,110 L 144,100 L 152,110 L 160,100 L 168,110 L 176,100"
+        fill="none" stroke="url(#toothGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 下排牙齿 -->
+  <path d="M 88,148 L 96,134 L 104,148 L 112,134 L 120,148 L 128,134 L 136,148 L 144,134 L 152,148 L 160,134 L 168,148"
+        fill="none" stroke="#1a1d29" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 90,146 L 96,136 L 102,146 L 110,136 L 118,146 L 126,136 L 134,146 L 142,136 L 150,146 L 158,136 L 166,146"
+        fill="none" stroke="url(#toothGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- 舌头 -->
+  <ellipse cx="128" cy="155" rx="30" ry="10" fill="#d4a853" opacity="0.25"/>
+
+  <!-- ===== 信件（被含在嘴里） ===== -->
+  <g transform="rotate(-6 128 85)" filter="url(#shadow)">
+    <!-- 信封主体 -->
+    <rect x="82" y="42" width="92" height="65" rx="10" fill="url(#letterGrad)" stroke="#1a1d29" stroke-width="8" stroke-linejoin="round"/>
+
+    <!-- 信封折线（V形） -->
+    <path d="M 86,48 L 128,82 L 170,48" fill="none" stroke="#1a1d29" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 86,48 L 128,82 L 170,48" fill="none" stroke="#b8923f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 信件内容露出 -->
+    <rect x="95" y="52" width="66" height="40" rx="4" fill="#faf3e6" stroke="#1a1d29" stroke-width="4"/>
+    <!-- 内容线条 -->
+    <rect x="102" y="60" width="36" height="4" rx="2" fill="#1a1d29" opacity="0.35"/>
+    <rect x="102" y="70" width="52" height="3" rx="1.5" fill="#1a1d29" opacity="0.2"/>
+    <rect x="102" y="78" width="44" height="3" rx="1.5" fill="#1a1d29" opacity="0.2"/>
+    <rect x="102" y="86" width="28" height="3" rx="1.5" fill="#1a1d29" opacity="0.2"/>
+
+    <!-- 封蜡 -->
+    <circle cx="128" cy="82" r="7" fill="url(#waxGrad)" stroke="#1a1d29" stroke-width="3"/>
+    <circle cx="128" cy="82" r="3" fill="#f5e6a8"/>
+  </g>
+
+  <!-- ===== 小手/爪子 ===== -->
+  <ellipse cx="68" cy="105" rx="14" ry="10" fill="url(#bodyGrad)" stroke="#1a1d29" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 60,100 L 60,112 M 68,98 L 68,114 M 76,100 L 76,112" 
+        stroke="#1a1d29" stroke-width="4" stroke-linecap="round"/>
+
+  <ellipse cx="188" cy="105" rx="14" ry="10" fill="url(#bodyGrad)" stroke="#1a1d29" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 180,100 L 180,112 M 188,98 L 188,114 M 196,100 L 196,112" 
+        stroke="#1a1d29" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- ===== 小脚 ===== -->
+  <ellipse cx="85" cy="222" rx="16" ry="10" fill="url(#bodyGrad)" stroke="#1a1d29" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="171" cy="222" rx="16" ry="10" fill="url(#bodyGrad)" stroke="#1a1d29" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- ===== 可爱装饰 ===== -->
+  <!-- 腮红 -->
+  <circle cx="68" cy="188" r="10" fill="#d4a853" opacity="0.2"/>
+  <circle cx="188" cy="188" r="10" fill="#d4a853" opacity="0.2"/>
+
+  <!-- 眼睛 -->
+  <circle cx="95" cy="88" r="9" fill="#1a1d29"/>
+  <circle cx="92" cy="85" r="3.5" fill="#d4a853"/>
+
+  <circle cx="161" cy="88" r="9" fill="#1a1d29"/>
+  <circle cx="161" cy="85" r="3.5" fill="#d4a853"/>
+
+</svg>

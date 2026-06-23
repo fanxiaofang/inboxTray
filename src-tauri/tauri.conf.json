@@ -1,0 +1,87 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "InboxTray",
+  "version": "0.1.0",
+  "identifier": "com.inboxtray.app",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "InboxTray",
+        "width": 420,
+        "height": 700,
+        "minWidth": 380,
+        "minHeight": 400,
+        "resizable": true,
+        "maximizable": false,
+        "decorations": false,
+        "transparent": false,
+        "alwaysOnTop": false,
+        "visible": false,
+        "create": false
+      },
+      {
+        "label": "quick-input",
+        "title": "InboxTray - Quick Input",
+        "url": "index.quick-input.html",
+        "width": 380,
+        "height": 280,
+        "minWidth": 380,
+        "minHeight": 240,
+        "maxWidth": 500,
+        "maxHeight": 400,
+        "resizable": false,
+        "maximizable": false,
+        "decorations": false,
+        "transparent": false,
+        "alwaysOnTop": true,
+        "visible": false,
+        "create": false,
+        "skipTaskbar": true
+      }
+    ],
+    "trayIcon": {
+      "iconPath": "icons/star-icon32.png",
+      "tooltip": "InboxTray"
+    },
+    "security": {
+      "csp": null,
+      "capabilities": ["default"],
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["**"]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis", "msi"],
+    "icon": [
+      "icons/star-icon16.png",
+      "icons/star-icon32.png",
+      "icons/star-icon64.png",
+      "icons/star-icon128.png",
+      "icons/star-icon256.png",
+      "icons/star-icon.ico"
+    ],
+    "windows": {
+      "webviewInstallMode": {
+        "type": "downloadBootstrapper",
+        "silent": true
+      },
+      "nsis": {
+        "installMode": "perMachine",
+        "installerHooks": "nsis/installer.nsh"
+      }
+    }
+  },
+  "plugins": {
+    "sql": {}
+  }
+}

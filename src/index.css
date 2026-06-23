@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+/* ==============================
+   语义 Token 定义
+   ============================== */
+:root,
+[data-theme="brass"] {
+  --color-app-bg: #1a1a1e;
+  --color-app-surface: #25252a;
+  --color-app-surface-raised: #32323a;
+  --color-app-border: #3a3526;
+  --color-app-border-strong: #8b6508;
+  --color-app-text: #f5e6c8;
+  --color-app-muted: #8b6508;
+  --color-app-accent: #b8860b;
+  --color-app-accent-hover: #d4a843;
+  --color-app-accent-soft: color-mix(in srgb, #b8860b 12%, transparent);
+  --color-app-success: #4a7c59;
+  --color-app-warning: #b87333;
+  --color-app-warning-hover: #d4915a;
+  --color-app-danger: #8b3a3a;
+  --color-app-on-accent: #1a1a1e;
+}
+
+[data-theme="light"] {
+  --color-app-bg: #f7f8fa;
+  --color-app-surface: #ffffff;
+  --color-app-surface-raised: #eef1f5;
+  --color-app-border: #d8dee8;
+  --color-app-border-strong: #b9c2d0;
+  --color-app-text: #111827;
+  --color-app-muted: #64748b;
+  --color-app-accent: #2563eb;
+  --color-app-accent-hover: #1d4ed8;
+  --color-app-accent-soft: color-mix(in srgb, #2563eb 10%, transparent);
+  --color-app-success: #059669;
+  --color-app-warning: #b45309;
+  --color-app-warning-hover: #92400e;
+  --color-app-danger: #dc2626;
+  --color-app-on-accent: #ffffff;
+}
+
+[data-theme="slate"] {
+  --color-app-bg: #111827;
+  --color-app-surface: #1f2937;
+  --color-app-surface-raised: #273449;
+  --color-app-border: #374151;
+  --color-app-border-strong: #4b5563;
+  --color-app-text: #f8fafc;
+  --color-app-muted: #94a3b8;
+  --color-app-accent: #60a5fa;
+  --color-app-accent-hover: #93c5fd;
+  --color-app-accent-soft: color-mix(in srgb, #60a5fa 10%, transparent);
+  --color-app-success: #34d399;
+  --color-app-warning: #fbbf24;
+  --color-app-warning-hover: #f59e0b;
+  --color-app-danger: #f87171;
+  --color-app-on-accent: #111827;
+}
+
+[data-theme="forest"] {
+  --color-app-bg: #101815;
+  --color-app-surface: #18231f;
+  --color-app-surface-raised: #20312b;
+  --color-app-border: #2d3d35;
+  --color-app-border-strong: #3d5345;
+  --color-app-text: #eef7f1;
+  --color-app-muted: #9ab6a8;
+  --color-app-accent: #6ee7b7;
+  --color-app-accent-hover: #34d399;
+  --color-app-accent-soft: color-mix(in srgb, #6ee7b7 10%, transparent);
+  --color-app-success: #34d399;
+  --color-app-warning: #fbbf24;
+  --color-app-warning-hover: #f59e0b;
+  --color-app-danger: #fb7185;
+  --color-app-on-accent: #101815;
+}
+
+@theme {
+  --color-steel-dark: var(--color-app-bg);
+  --color-steel-mid: var(--color-app-surface);
+  --color-steel-light: var(--color-app-surface-raised);
+  --color-brass: var(--color-app-accent);
+  --color-brass-light: var(--color-app-accent-hover);
+  --color-brass-dark: var(--color-app-muted);
+  --color-copper: var(--color-app-warning);
+  --color-copper-light: var(--color-app-warning-hover);
+  --color-paper: var(--color-app-text);
+  --color-paper-dark: var(--color-app-text);
+  --color-green-glow: var(--color-app-success);
+  --color-rust: #8b4513;
+  --color-danger: var(--color-app-danger);
+
+  /* 语义 token（给 Tailwind 生成 bg-app-bg 等工具类） */
+  --color-app-bg: var(--color-app-bg);
+  --color-app-surface: var(--color-app-surface);
+  --color-app-surface-raised: var(--color-app-surface-raised);
+  --color-app-border: var(--color-app-border);
+  --color-app-border-strong: var(--color-app-border-strong);
+  --color-app-text: var(--color-app-text);
+  --color-app-muted: var(--color-app-muted);
+  --color-app-accent: var(--color-app-accent);
+  --color-app-accent-hover: var(--color-app-accent-hover);
+  --color-app-accent-soft: var(--color-app-accent-soft);
+  --color-app-success: var(--color-app-success);
+  --color-app-warning: var(--color-app-warning);
+  --color-app-warning-hover: var(--color-app-warning-hover);
+  --color-app-danger: var(--color-app-danger);
+  --color-app-on-accent: var(--color-app-on-accent);
+
+  --font-family-serif: "Noto Serif SC", "Cinzel", serif;
+  --font-family-display: "Cinzel", serif;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-family-serif);
+    background-color: var(--color-app-bg);
+    color: var(--color-app-text);
+    overflow: hidden;
+  }
+
+  html, body, #root {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .steampunk-border {
+    border: 1px solid var(--color-app-border-strong);
+    border-radius: 2px;
+    background: var(--color-app-surface);
+    position: relative;
+  }
+
+  .steampunk-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--color-app-accent);
+    opacity: 0.6;
+  }
+
+  .steampunk-input {
+    width: 100%;
+    background: var(--color-app-surface);
+    border: 1px solid var(--color-app-border-strong);
+    border-radius: 2px;
+    padding: 8px 12px;
+    color: var(--color-app-text);
+    font-family: "Noto Serif SC", serif;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .steampunk-input::placeholder {
+    color: var(--color-app-muted);
+    font-style: italic;
+  }
+
+  .steampunk-input:focus {
+    border-color: var(--color-app-accent);
+  }
+
+  .steampunk-button {
+    font-size: 11px;
+    padding: 4px 12px;
+    border: 1px solid var(--color-app-border-strong);
+    background: var(--color-app-bg);
+    color: var(--color-app-accent);
+    cursor: pointer;
+    font-family: "Noto Serif SC", serif;
+    letter-spacing: 0.5px;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+
+  .steampunk-button:hover {
+    background: var(--color-app-accent-hover);
+    color: var(--color-app-on-accent);
+  }
+
+  .steampunk-button-primary {
+    border-color: var(--color-app-accent);
+    background: var(--color-app-accent-soft);
+  }
+
+  .steampunk-button-primary:hover {
+    background: var(--color-app-accent);
+    color: var(--color-app-on-accent);
+  }
+
+  .steampunk-button-danger {
+    border-color: var(--color-app-danger);
+    color: var(--color-app-danger);
+  }
+
+  .steampunk-button-danger:hover {
+    background: var(--color-app-danger);
+    color: var(--color-app-on-accent);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-app-muted);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-app-accent);
+}
+
+::selection {
+  background: var(--color-app-accent-soft);
+  color: var(--color-app-text);
+}
