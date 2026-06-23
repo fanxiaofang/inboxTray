@@ -278,7 +278,7 @@ export default function QuickInputWindow() {
             onKeyDown={handleKeyDown}
             onPaste={handlePaste}
             placeholder={`有什么想法？Ctrl+V 可贴图（≤${MAX_IMAGES}张）`}
-            className="flex-1 w-full bg-transparent border-none outline-none resize-none text-sm min-h-[60px] placeholder:text-app-muted/60 leading-relaxed text-app-text"
+            className="flex-1 w-full bg-transparent border-none outline-none resize-none text-sm min-h-[60px] placeholder:text-app-muted/60 leading-relaxed text-app-text overflow-x-hidden"
             autoFocus
           />
 
